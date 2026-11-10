@@ -30,11 +30,14 @@ This project explores the intersection of graphic design, motion graphics and fr
 - GSAP 3
 - GSAP ScrollTrigger
 
+
 ## Project Structure
 
+```text
 gsap-animation-lab/
 ├── index.html
 └── README.md
+```
 
 ```
 
