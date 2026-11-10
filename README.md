@@ -32,10 +32,10 @@ This project explores the intersection of graphic design, motion graphics and fr
 
 ## Project Structure
 
-```text
 gsap-animation-lab/
 ├── index.html
 └── README.md
+
 ```
 
 ## Learning Goals
