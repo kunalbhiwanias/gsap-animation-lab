@@ -12,6 +12,8 @@ An interactive motion design playground exploring web animation, creative coding
 
 This project explores the intersection of graphic design, motion graphics and frontend development through interactive web animations.
 
+The goal is to experiment with animation principles, transitions, timing and interactive visual experiences using GSAP.
+
 ## Features
 
 - Animated hero typography
@@ -20,7 +22,7 @@ This project explores the intersection of graphic design, motion graphics and fr
 - Staggered card transitions
 - Interactive hover effects
 - Responsive layout for mobile and desktop
-- GSAP timeline and animation experiments
+- GSAP animation experiments
 
 ## Technologies Used
 
@@ -30,16 +32,11 @@ This project explores the intersection of graphic design, motion graphics and fr
 - GSAP 3
 - GSAP ScrollTrigger
 
-
 ## Project Structure
 
-```text
-gsap-animation-lab/
-├── index.html
-└── README.md
-```
-
-```
+    gsap-animation-lab/
+    ├── index.html
+    └── README.md
 
 ## Learning Goals
 
@@ -47,6 +44,7 @@ gsap-animation-lab/
 - Understand scroll-based animation techniques
 - Build interactive web experiences
 - Combine visual design with creative development
+- Experiment with frontend motion design
 
 ## Author
 
