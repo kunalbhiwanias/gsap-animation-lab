@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Animation Lab | Kunal Bhiwania</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #101010;
+      color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 28px 7%;
+      border-bottom: 1px solid #333;
+    }
+    nav span { color: #aaa; font-size: 13px; }
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10%;
+    }
+    .tag { color: #a4ff65; letter-spacing: 3px; font-size: 12px; }
+    h1 {
+      font-size: clamp(55px, 11vw, 145px);
+      line-height: .95;
+      margin: 28px 0;
+      letter-spacing: -8px;
+    }
+    h1 span { display: block; color: #a4ff65; }
+    .intro { color: #aaa; max-width: 420px; line-height: 1.7; }
+    .section { padding: 100px 10%; }
+    .section h2 { font-size: clamp(32px, 6vw, 65px); margin-bottom: 45px; }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      min-height: 230px;
+      padding: 30px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background .3s;
+    }
+    .card:hover { background: #292929; }
+    .card h3 { font-size: 25px; }
+    .card p { color: #aaa; margin-top: 12px; }
+    .number { color: #a4ff65; font-size: 13px; }
+    .end {
+      padding: 100px 10%;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+    .end h2 { font-size: clamp(35px, 7vw, 80px); }
+    .end p { color: #aaa; margin-top: 20px; }
+    @media(max-width: 650px) {
+      .cards { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -4px; }
+      .section { padding: 75px 7%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <strong>KB®</strong>
+    <span>CREATIVE DEVELOPMENT / 001</span>
+  </nav>
+
+  <section class="hero">
+    <div class="tag hero-tag">MOTION EXPERIMENTS · 2026</div>
+    <h1 class="hero-title">
+      MOTION
+      <span>IN CODE.</span>
+    </h1>
+    <p class="intro hero-intro">
+      Exploring the intersection of design, animation and
+      creative development through GSAP.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Experiments.</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="number">01 / STAGGER</span>
+        <div>
+          <h3>Sequential Motion</h3>
+          <p>Elements animate in a coordinated sequence.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="number">02 / SCROLL</span>
+        <div>
+          <h3>Scroll Animation</h3>
+          <p>Motion triggered by the scrolling experience.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="number">03 / HOVER</span>
+        <div>
+          <h3>Interactive Motion</h3>
+          <p>Responsive animation on user interaction.</p>
+        </div>
+      </div>
+      <div class="card">
+        <span class="number">04 / TIMELINE</span>
+        <div>
+          <h3>Motion Sequences</h3>
+          <p>Multiple animations controlled by timelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end">
+    <h2 class="closing">Keep Creating.</h2>
+    <p>Designed and developed by Kunal Bhiwania.</p>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero-tag", {
+      opacity: 0, y: 30, duration: 1
+    });
+
+    gsap.from(".hero-title", {
+      opacity: 0, y: 80, duration: 1.2, delay: 0.2
+    });
+
+    gsap.from(".hero-intro", {
+      opacity: 0, y: 25, duration: 1, delay: 0.6
+    });
+
+    gsap.from(".section-title", {
+      scrollTrigger: {
+        trigger: ".section-title",
+        start: "top 85%"
+      },
+      opacity: 0, y: 50, duration: 1
+    });
+
+    gsap.from(".card", {
+      scrollTrigger: {
+        trigger: ".cards",
+        start: "top 80%"
+      },
+      opacity: 0,
+      y: 60,
+      duration: 0.8,
+      stagger: 0.2
+    });
+
+    gsap.from(".closing", {
+      scrollTrigger: {
+        trigger: ".end",
+        start: "top 85%"
+      },
+      opacity: 0,
+      scale: 0.8,
+      duration: 1
+    });
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, { y: -10, duration: 0.3 });
+      });
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, { y: 0, duration: 0.3 });
+      });
+    });
+  </script>
+
+</body>
+</html>
